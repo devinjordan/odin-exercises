@@ -1,24 +1,26 @@
-const dropdownButton = document.querySelector('.dropdown-button');
-const dropdownItems = document.querySelectorAll('.dropdown-item');
+class Dropdown {
+  constructor(buttonSelector, itemsSelector) {
+    this.button = document.querySelector(buttonSelector);
+    this.items = document.querySelectorAll(itemsSelector);
 
-let toggled = false;
-
-const toggleDropdown = () => {
-  
-  for (let i = 0; i < dropdownItems.length; i++) {
-    let item = dropdownItems[i];
-    item.classList.toggle('hidden');
+    this.button.addEventListener('click', () => {
+      this.toggleDropdown();
+    });
   };
 
-  toggled = !toggled;
+  toggleDropdown() {
+    for (let i = 0; i < this.items.length; i++) {
+      let item = this.items[i];
+      item.classList.toggle('hidden');
+    };
+    this.button.classList.toggle('active');
+  };
 };
 
-dropdownButton.addEventListener('click', () => {
-  toggleDropdown();
-});
+const myDropdown = new Dropdown('.dropdown-button', '.dropdown-item');
 
 window.addEventListener('click', (e) => {
-  if (e.target != dropdownButton && toggled) {
-    toggleDropdown();
+  if (e.target != myDropdown.button && myDropdown.button.classList.contains('active')) {
+    myDropdown.toggleDropdown();
   };
 });
