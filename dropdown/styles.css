@@ -1,5 +1,6 @@
 .dropdowns {
   position: sticky;
+  display: flex;
   top: 0;
   width: fit-content;
   margin: 0;
@@ -12,6 +13,7 @@
   border: none;
   cursor: pointer;
   width: 100%;
+  position: relative;
 }
 
 .dropdown-button:hover, .dropdown-button:focus {
@@ -21,9 +23,13 @@
 .dropdown-content {
   display: none;
   position: absolute;
+  width: 100%;
+  z-index: 1;
+  top: 100%;
 }
 
 .showing {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
