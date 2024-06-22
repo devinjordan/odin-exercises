@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fibonacci</title>
+</head>
+<body>
+  <script>
+    function fibs(n) {
+      let sequence = [];
+      for (let i = 0; i < n; i++) {
+        if (i === 0 || i === 1) {
+          sequence.push(1);
+        } else {
+          sequence.push(sequence[i - 1] + sequence[i - 2]);
+        }
+      }
+      console.log(sequence);
+    }
+
+    function fibsRec(n) {
+      // base case(s)
+      if (n === 0) {
+        return [0];
+      } else if (n === 1) {
+        return [0, 1];
+      // recursive case
+      } else {
+        let lastFib = fibsRec(n - 1);
+        nextFib = lastFib[lastFib.length - 1] + lastFib[lastFib.length - 2];
+        lastFib.push(nextFib);
+        return lastFib;
+      }
+    }
+
+  </script>
+</body>
+</html>
