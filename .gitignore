@@ -1,6 +1,6 @@
-./carousel
-./dropdown
-./giphy
+carousel*
+giphy*
+dropdown*
 
 # Logs
 logs
